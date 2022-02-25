@@ -142,6 +142,7 @@ public class Osoba
     public Obcanka Obcanka;
     public Dokument DruhyDokument;
     public TypDokumentu TypDruhehoDokumentu;
+    public string Prace;
 }
 public class CeleJmenoAPohlavi
 {

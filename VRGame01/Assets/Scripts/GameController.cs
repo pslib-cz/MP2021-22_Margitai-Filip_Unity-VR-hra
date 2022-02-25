@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour
     private void GenerujDoklady()
     {
         // Obcanka - Mají všichni
-        var mesta = dataCollection.Mesta.Where(m => m.Planeta == osoba.Planeta.TypPlanety).ToList();
+        var mesta = dataCollection.Mesta.Where(m => m.Planeta == osoba.Planeta.TypPlanety && m.JePlatne).ToList();
         var mesto = mesta[random.Next(mesta.Count)];
 
         var startDate = aktualniInformace.AktualniDen;
@@ -103,7 +103,7 @@ public class GameController : MonoBehaviour
         // Jakýkoliv další dokument, je potřeba pro vstup cizinci
         if (osoba.Planeta.TypPlanety != TypPlanety.Zeme)
         {
-            GenerujDruhyDokument();
+            GenerujDruhyDokument(true);
         }
     }
     private void GenerujChybu()
@@ -117,6 +117,7 @@ public class GameController : MonoBehaviour
             else mozneProblemy = dataCollection.TypyUdaje;
             osoba.NeplatnyUdaj = mozneProblemy[random.Next(mozneProblemy.Count)];
 
+            List<Mesto> mesta = new List<Mesto>();
             switch (osoba.NeplatnyUdaj.NazevUdaje)
             {
                 case "JmenaNeshoduji":
@@ -131,7 +132,7 @@ public class GameController : MonoBehaviour
                         if (osoba.Pohlavi == Pohlavi.Muz) osoba.Pohlavi = Pohlavi.Zena;
                         else if (osoba.Pohlavi == Pohlavi.Zena) osoba.Pohlavi = Pohlavi.Muz;
                         else osoba.Pohlavi = Pohlavi.Zena;
-                        GenerujDruhyDokument();
+                        GenerujDruhyDokument(true);
                         provedloSe = true;
                     }
                     break;
@@ -139,7 +140,7 @@ public class GameController : MonoBehaviour
                     if (osoba.TypDruhehoDokumentu != TypDokumentu.Povolenka)
                     {
                         osoba.Narozeni = osoba.Narozeni.AddDays(random.Next(-400, 400));
-                        GenerujDruhyDokument();
+                        GenerujDruhyDokument(true);
                         provedloSe = true;
                     }
                     break;
@@ -147,7 +148,7 @@ public class GameController : MonoBehaviour
                     if (osoba.TypDruhehoDokumentu != TypDokumentu.PracovniPovoleni)
                     {
                         osoba.Id = NahodnyRetezec(9).Insert(5, "-");
-                        GenerujDruhyDokument();
+                        GenerujDruhyDokument(true);
                         provedloSe = true;
                     }
                     break;
@@ -190,10 +191,28 @@ public class GameController : MonoBehaviour
                     provedloSe = true;
                     break;
                 case "MestoNevydava":
+                    mesta = dataCollection.Mesta.Where(m => m.Planeta == osoba.Planeta.TypPlanety && !m.JePlatne).ToList();
+                    osoba.Obcanka.Mesto = mesta[random.Next(mesta.Count)].Text;
+                    provedloSe = true;
                     break;
                 case "MestoJinaPlaneta":
+                    mesta = dataCollection.Mesta.Where(m => m.Planeta != osoba.Planeta.TypPlanety).ToList();
+                    osoba.Obcanka.Mesto = mesta[random.Next(mesta.Count)].Text;
+                    provedloSe = true;
                     break;
                 case "NeplatnaPrace":
+                    if (osoba.TypDruhehoDokumentu == TypDokumentu.PracovniPovoleni)
+                    {
+                        string VyslendaPrace;
+                        var VsechnyPrace = dataCollection.Prace;
+                        foreach(var prace in aktualniInformace.PlatnaPrace)
+                        {
+                            VsechnyPrace.Remove(prace);
+                        }
+                        osoba.Prace = VsechnyPrace[random.Next(VsechnyPrace.Count)];
+                        GenerujDruhyDokument(false);
+                        provedloSe = true;
+                    }
                     break;
                 case "ChybiDokument":
                     osoba.DruhyDokument = null;
@@ -259,15 +278,22 @@ public class GameController : MonoBehaviour
         }
         return new CeleJmenoAPohlavi(krestniJmena[random.Next(krestniJmena.Count)].Text, prijmeniJmena[random.Next(prijmeniJmena.Count)].Text, pohlavi);
     }
-    private void GenerujDruhyDokument()
+    private void GenerujDruhyDokument(bool ZmenitDokument)
     {
-        var values = Enum.GetValues(typeof(TypDokumentu));
         TypDokumentu typDruhehoDokumentu;
-        do
+        if (ZmenitDokument)
         {
-            typDruhehoDokumentu = (TypDokumentu)values.GetValue(random.Next(values.Length));
-        } while (typDruhehoDokumentu != TypDokumentu.Obcanka);
-        osoba.TypDruhehoDokumentu = typDruhehoDokumentu;
+            var values = Enum.GetValues(typeof(TypDokumentu));;
+            do
+            {
+                typDruhehoDokumentu = (TypDokumentu)values.GetValue(random.Next(values.Length));
+            } while (typDruhehoDokumentu != TypDokumentu.Obcanka);
+            osoba.TypDruhehoDokumentu = typDruhehoDokumentu;
+        }
+        else
+        {
+            typDruhehoDokumentu = osoba.TypDruhehoDokumentu;
+        }
 
         var startDate = aktualniInformace.AktualniDen;
         var endDate = aktualniInformace.AktualniDen.AddDays(7);
