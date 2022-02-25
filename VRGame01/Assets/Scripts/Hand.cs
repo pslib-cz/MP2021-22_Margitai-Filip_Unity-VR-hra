@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// --- Hand ---
+// Chování ruky - animace.
+
 public class Hand : MonoBehaviour
 {
     Animator animator;
@@ -13,13 +16,11 @@ public class Hand : MonoBehaviour
     private float triggerCurrent;
     private string animatorGripParam = "Grip";
     private string animatorTriggerParam = "Trigger";
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         AnimateHand();

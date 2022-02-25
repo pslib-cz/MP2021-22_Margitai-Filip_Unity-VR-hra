@@ -707,226 +707,6 @@ Transform:
   m_Father: {fileID: 727867617}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &339003895
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 339003897}
-  - component: {fileID: 339003896}
-  m_Layer: 0
-  m_Name: Passport Generator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &339003896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339003895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c3329100f1b62f459af0886475d2676, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sance: 10
-  JmenaKrestni_Z:
-  - Jan
-  - "Luk\xE1\u0161"
-  - Radek
-  - Filip
-  - Michal
-  - "Ond\u0159ej"
-  - Karel
-  - Andrej
-  - "Zden\u011Bk"
-  - "Lud\u011Bk"
-  - "Kl\xE1ra"
-  - Magda
-  - Jana
-  - "Eli\u0161ka"
-  - Gertruda
-  - Anna
-  - Marta
-  - "Franti\u0161ka"
-  - "R\u016F\u017Eena"
-  - "So\u0148a"
-  JmenaPrijmeni_Z:
-  - "Nov\xE1k"
-  - "Dvo\u0159\xE1k"
-  - "N\u011Bmec"
-  - "Pokorn\xFD"
-  - "\u017Did"
-  - "Bene\u0161"
-  - Kazda
-  - "Fialov\xFD"
-  - "Kov\xE1\u0159"
-  - Sobotka
-  - "Krej\u010D\xED"
-  - "K\u0159\xED\u017E"
-  - "Matou\u0161ek"
-  - "Bl\xE1ha"
-  - "Bure\u0161"
-  - "B\xE1rta"
-  - "V\xEDtek"
-  - Vondra
-  - "Ond\u0159ej"
-  - Janu
-  Mesta_Z:
-  - Jablonec n/N
-  - Wuhan
-  - Seattle
-  - "Smr\u017Eovka"
-  - Riga
-  - Warszawa
-  - Tbilisi
-  - Nairobi
-  - Tegucigalpa
-  Mesta_Zn:
-  - Brno
-  - Miami
-  - Paramaribo
-  - "Nov\xE9 M\u011Bsto pod Smrkem"
-  - Katowice
-  - "Bia\u0142ystok"
-  - "Wroc\u0142aw"
-  - "Krak\xF3w"
-  JmenaKrestni_C:
-  - Kalme
-  - Junna
-  - Obrozoure
-  - Kaz zaa
-  - Objat
-  - Olle ale
-  - Ro meo
-  - Gladdda
-  - Rapun
-  - Onojednovejce
-  - Babovka
-  - Glagla
-  JmenaPrijmeni_C:
-  - Duracel
-  - Nevim
-  - Francuz
-  - Brasna
-  - Nebrasna
-  - Galadi i
-  - Jaz maz kaz
-  - Nicmoc
-  - Alejeden
-  - Pokmr er
-  - Bubana
-  - Lappa
-  Mesta_C:
-  - Omnetu ra
-  - Nomemalme
-  - Uwu
-  - Kon iec
-  - Napomeon
-  - Sa li na
-  - Rohozjiec
-  - Gagda ra nana
-  - Unwe lle
-  Mesta_Cn:
-  - Mala mlejn
-  - Uven lle
-  - Krus ov ijce
-  - Manma iec
-  JmenaKrestni_U:
-  - Abidemi
-  - Bamidele
-  - Taraji
-  - Zuri
-  - Idir
-  - Faraji
-  - Zaire
-  - Diallo
-  - Kwame
-  - Makena
-  - Chidinma
-  JmenaPrijmeni_U:
-  - Mohamed
-  - Ali
-  - Ahmed
-  - Hassan
-  - Diallo
-  - Musa
-  - Knuckles
-  - Usman
-  - Muhammad
-  - Camara
-  - Abdi
-  Mesta_U:
-  - Kampala
-  - Mbale
-  - Mbarara
-  - Kabale
-  - Gulu
-  - Lira
-  Mesta_Un:
-  - Gogonyo
-  - Mbarale
-  - Soroti
-  - Kunebravo
-  JmenaKrestni_L:
-  - Lalelo
-  - Lelelau
-  - LoO
-  - LoOa
-  - LoaLao
-  - Lelu lou
-  - OleLo
-  - L o
-  - LoLaLeLaLo
-  - LuL
-  - Loola
-  - LaaleO
-  JmenaPrijmeni_L:
-  - LoaLao
-  - Lopata
-  - LuLooOo
-  - OloLe
-  - Le
-  - Le E
-  - LoLeLa
-  - LoAoLe
-  - LeOu
-  - LoLaLau
-  - Lala
-  - Lale
-  Mesta_L:
-  - LaLeLauLa
-  - Lo Lau
-  - Lal Le
-  - LalaLeoui
-  - LolalaA
-  Mesta_Ln:
-  - LolalAa
-  - Lal lE
-  - LaulouLe
-  - Lelen
-  - LaulalEouLo
---- !u!4 &339003897
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339003895}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.06517601, y: 0.044596136, z: -0.10986614}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 617334839}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &346941168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,6 +1382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 617334839}
   - component: {fileID: 617334838}
+  - component: {fileID: 617334840}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1631,11 +1412,22 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.0245006, y: 0.76533055, z: -4.1800814}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 339003897}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &617334840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617334837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d82aefbafaa7440becf1c62e32571b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &665527360
 PrefabInstance:
   m_ObjectHideFlags: 0

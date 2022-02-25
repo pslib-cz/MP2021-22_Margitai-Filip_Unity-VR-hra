@@ -4,133 +4,155 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum Planeta
+// --- Models ---
+// Modely tříd, které přímo nekomunikují s Unity
+// dokumenty/DiagramFunkčnosti.png
+
+public enum TypPlanety
 {
     Zeme,           // Lidi
     C212,           // Medůzy
     Ugandus,        // Knuckles
     LaleloOlelAa    // Slimáci
 }
+public enum TypDokumentu
+{
+    Obcanka,
+    PracovniPovoleni,
+    ImigracniList,
+    Povolenka
+}
+/*public enum TypUdaje
+{
+    // --- Neshodují se údaje ---
+    JmenaNeshoduji,
+    PohlaviNeshoduji,
+    NarozeniNeshoduji,
+    IdNeshoduji,
+    //FotkyNeshoduji,
+    PlanetyNeshoduji,
+
+    // --- Nesprávný údaj ---
+    PlatnostVyprsela,
+    MestoNevydava,
+    MestoJinaPlaneta,
+    //SpatnaFotka,
+    //JeZlocinec,
+    NeplatnaPrace,
+
+    // --- Chybí dokument ---
+    ChybiDokument,
+    //ChybiPracPovoleni,
+    //ChybiPovolenka,
+    //ChybiImigracList,
+    //ChybiObcanka
+}*/
 public enum Pohlavi
 {
     Muz,
     Zena,
-    Nebinarni,
-    Neuvedeno
+    Nebinarni
 }
-public enum TypUdaje
+public abstract class Dokument
 {
-    //Jmeno,
-    Narozeni,
-    //Pohlavi,
-    Mesto,
-    Platnost,
-    //Planeta,
-    //Id
+    public string JmenoKrestni;
+    public string JmenoPrijmeni;
+    public Planeta Planeta;
+    public DateTime Platnost;
 }
-public class Pas : MonoBehaviour
+public class Obcanka : Dokument
+{
+    public Pohlavi Pohlavi;
+    public DateTime Narozeni;
+    public string Mesto; 
+    public string Id;
+    //public Fotka Fotka;
+    public Obcanka(string jmenoKrestni, string jmenoPrijmeni, Planeta planeta, DateTime platnost, Pohlavi pohlavi, DateTime narozeni, string mesto, string id)
+    {
+        JmenoKrestni = jmenoKrestni;
+        JmenoPrijmeni = jmenoPrijmeni;
+        Planeta = planeta;
+        Platnost = platnost;
+        Pohlavi = pohlavi;
+        Narozeni = narozeni;
+        Mesto = mesto;
+        Id = id;
+    }
+}
+public class PracovniPovoleni : Dokument
+{
+    public Pohlavi Pohlavi;
+    public DateTime Narozeni;
+    public string Prace;
+    public PracovniPovoleni(string jmenoKrestni, string jmenoPrijmeni, Planeta planeta, DateTime platnost, Pohlavi pohlavi, DateTime narozeni, string prace)
+    {
+        JmenoKrestni = jmenoKrestni;
+        JmenoPrijmeni = jmenoPrijmeni;
+        Planeta = planeta;
+        Platnost = platnost;
+        Pohlavi = pohlavi;
+        Narozeni = narozeni;
+        Prace = prace;
+    }
+}
+public class Povolenka : Dokument
+{
+    public Pohlavi Pohlavi;
+    public string Id;
+    //public Fotka Fotka;
+    public Povolenka(string jmenoKrestni, string jmenoPrijmeni, Planeta planeta, DateTime platnost, Pohlavi pohlavi, string id)
+    {
+        JmenoKrestni = jmenoKrestni;
+        JmenoPrijmeni = jmenoPrijmeni;
+        Planeta = planeta;
+        Platnost = platnost;
+        Pohlavi = pohlavi;
+        Id = id;
+    }
+}
+public class ImigracniList : Dokument
+{
+    public DateTime Narozeni;
+    public string Id;
+    //public Fotka Fotka;
+    public ImigracniList(string jmenoKrestni, string jmenoPrijmeni, Planeta planeta, DateTime platnost, DateTime narozeni, string id)
+    {
+        JmenoKrestni = jmenoKrestni;
+        JmenoPrijmeni = jmenoPrijmeni;
+        Planeta = planeta;
+        Platnost = platnost;
+        Narozeni = narozeni;
+        Id = id;
+    }
+}
+public class Osoba
 {
     // --- Viditelné údaje ---
-    public string Jmeno;
-    public DateTime Narozeni;
+    public string JmenoKrestni;
+    public string JmenoPrijmeni;
     public Pohlavi Pohlavi;
-    public string Mesto;
-    public DateTime Platnost;
+    public DateTime Narozeni;
     public Planeta Planeta;
     public string Id;
+    //public Fotka Fotka;
 
-    // --- Vnitřní proměnné ---
+    // --- Skryté údaje ---
     public bool JePlatny;
-    public TypUdaje NeplatnyUdaj; // Pouze pokud JePlatny == false
-    public static System.Random Nahodne;
+    public TypUdaje NeplatnyUdaj;
+    public Obcanka Obcanka;
+    public Dokument DruhyDokument;
+    public TypDokumentu TypDruhehoDokumentu;
+}
+public class CeleJmenoAPohlavi
+{
+    public string JmenoKrestni;
+    public string JmenoPrijmeni;
+    public Pohlavi Pohlavi;
 
-    // --- Metoda pro generování ---
-    public static Pas GenerujPas(int SanceNeplatnosti, ListyNazvu Listy) // 0-100% 
+    public CeleJmenoAPohlavi(string jmenoKrestni, string jmenoPrijmeni, Pohlavi pohlavi)
     {
-        // --- Proces generování ---
-        Nahodne = new System.Random();
-        var NovyPas = new Pas();
-        NovyPas.JePlatny = Nahodne.Next(100) <= SanceNeplatnosti;
-        //if (NovyPas.JePlatny)
-        //{
-            Array values = Enum.GetValues(typeof(Planeta));
-            NovyPas.Planeta = (Planeta)values.GetValue(Nahodne.Next(values.Length)); //Náhodný enum
-            // Jména + města
-            switch (NovyPas.Planeta)
-            {
-                case Planeta.Zeme:
-                    NovyPas.Jmeno = Listy.JmenaKrestni_Z[Nahodne.Next(Listy.JmenaPrijmeni_Z.Count)] + ", " + Listy.JmenaKrestni_Z[Nahodne.Next(Listy.JmenaKrestni_Z.Count)]; // Margitai, Filip
-                    NovyPas.Mesto = Listy.Mesta_Z[Nahodne.Next(Listy.Mesta_Z.Count)];
-                    break;
-                case Planeta.C212:
-                    NovyPas.Jmeno = Listy.JmenaKrestni_C[Nahodne.Next(Listy.JmenaPrijmeni_C.Count)] + ", " + Listy.JmenaKrestni_C[Nahodne.Next(Listy.JmenaKrestni_C.Count)];
-                    NovyPas.Mesto = Listy.Mesta_C[Nahodne.Next(Listy.Mesta_C.Count)];
-                    break;
-                case Planeta.Ugandus:
-                    NovyPas.Jmeno = Listy.JmenaKrestni_U[Nahodne.Next(Listy.JmenaPrijmeni_U.Count)] + ", " + Listy.JmenaKrestni_U[Nahodne.Next(Listy.JmenaKrestni_U.Count)]; // Margitai, Filip
-                    NovyPas.Mesto = Listy.Mesta_U[Nahodne.Next(Listy.Mesta_U.Count)];
-                    break;
-                case Planeta.LaleloOlelAa:
-                    NovyPas.Jmeno = Listy.JmenaKrestni_L[Nahodne.Next(Listy.JmenaPrijmeni_L.Count)] + ", " + Listy.JmenaKrestni_L[Nahodne.Next(Listy.JmenaKrestni_L.Count)];
-                    NovyPas.Mesto = Listy.Mesta_L[Nahodne.Next(Listy.Mesta_L.Count)];
-                    break;
-            }
-            // Datumy
-            var startDate = new DateTime(1980, 1, 1);
-            var endDate = new DateTime(2050, 12, 31);
-            NovyPas.Narozeni = NahodneDatum(startDate, endDate);
-
-            startDate = Listy.DnesniDatum;
-            endDate = new DateTime(2069, 12, 31);
-            NovyPas.Platnost = NahodneDatum(startDate, endDate);
-
-            // Pohlaví
-            values = Enum.GetValues(typeof(Pohlavi));
-            NovyPas.Pohlavi = (Pohlavi)values.GetValue(Nahodne.Next(values.Length));
-
-            // Id
-            NovyPas.Id = NahodnyRetezec(9).Insert(5, "-");
-        //}
-        if(!NovyPas.JePlatny)
-        {
-            values = Enum.GetValues(typeof(TypUdaje));
-            NovyPas.NeplatnyUdaj = (TypUdaje)values.GetValue(Nahodne.Next(values.Length));
-            switch (NovyPas.NeplatnyUdaj)
-            {
-                case TypUdaje.Platnost:
-                    break;
-                case TypUdaje.Mesto:
-                    break;
-                case TypUdaje.Narozeni:
-                    break;
-            }
-        }
-        return NovyPas;
-    }
-    private static DateTime NahodneDatum(DateTime startDate, DateTime endDate)
-    {
-        Nahodne = new System.Random();
-        TimeSpan timeSpan = endDate - startDate;
-        TimeSpan newSpan = new TimeSpan(0, Nahodne.Next(0, (int)timeSpan.TotalMinutes), 0);
-        return startDate + newSpan;
-    }
-    private static string NahodnyRetezec(int length)
-    {
-        Nahodne = new System.Random();
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        return new string(Enumerable.Repeat(chars, length)
-            .Select(s => s[Nahodne.Next(s.Length)]).ToArray());
-    }
-    public override string ToString()
-    {
-        return "Jmeno: " + Jmeno
-            + "; Narození: " + Narozeni.ToString("MM/dd/yyyy")
-            + "; Pohlaví: " + Pohlavi.ToString()
-            + "; Město: " + Mesto
-            + "; Platnost: " + Platnost.ToString("MM/dd/yyyy")
-            + "; Planeta: " + Planeta.ToString()
-            + "; Id: " + Id
-            + "; JePlatny: " + JePlatny.ToString()
-            + "; NeplatnyUdaj: " + NeplatnyUdaj.ToString();
+        JmenoKrestni = jmenoKrestni;
+        JmenoPrijmeni = jmenoPrijmeni;
+        Pohlavi = pohlavi;
     }
 }

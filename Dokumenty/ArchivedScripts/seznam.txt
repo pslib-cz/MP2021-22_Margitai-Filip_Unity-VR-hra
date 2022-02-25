@@ -1,0 +1,191 @@
+JmenaKrestni_Z
+Jan
+Lukáš
+Radek
+Filip
+Michal
+Ondřej
+Karel
+Andrej
+Zdeněk
+Luděk
+Klára
+Magda
+Jana
+Eliška
+Gertruda
+Anna
+Marta
+Františka
+Růžena
+Soňa
+
+JmenaPrijmeni_Z
+Novák
+Dvořák
+Němec
+Pokorný
+Žid
+Beneš
+Kazda
+Fialový
+Kovář
+Sobotka
+Krejčí
+Kříž
+Matoušek
+Bláha
+Bureš
+Bárta
+Vítek
+Vondra
+Ondřej
+Janu
+
+Mesta_Z
+Jablonec n/N
+Wuhan
+Seattle
+Smržovka
+Riga
+Warszawa
+Tbilisi
+Nairobi
+Tegucigalpa
+
+Mesta_Zn
+Brno
+Miami
+Paramaribo
+Nové Město pod Smrkem
+Katowice
+Białystok
+Wrocław
+Kraków
+
+JmenaKrestni_C
+Kalme
+Junna
+Obrozoure
+Kaz zaa
+Objat
+Olle ale
+Ro meo
+Gladdda
+Rapun
+Onojednovejce
+Babovka
+Glagla
+
+JmenaPrijmeni_C
+Duracel
+Nevim
+Francuz
+Brasna
+Nebrasna
+Galadi i
+Jaz maz kaz
+Nicmoc
+Alejeden
+Pokmr er
+Bubana
+Lappa
+
+Mesta_C
+Omnetu ra
+Nomemalme
+Uwu
+Kon iec
+Napomeon
+Sa li na
+Rohozjiec
+Gagda ra nana
+Unwe lle
+
+Mesta_Cn
+Mala mlejn
+Uven lle
+Krus ov ijce
+Manma iec
+
+JmenaKrestni_U
+Abidemi
+Bamidele
+Taraji
+Zuri
+Idir
+Faraji
+Zaire
+Diallo
+Kwame
+Makena
+Chidinma
+
+JmenaPrijmeni_U
+Mohamed
+Ali
+Ahmed
+Hassan
+Diallo
+Musa
+Knuckles
+Usman
+Muhammad
+Camara
+Abdi
+
+Mesta_U
+Kampala
+Mbale
+Mbarara
+Kabale
+Gulu
+Lira
+
+Mesta_Un
+Gogonyo
+Mbarale
+Soroti
+Kunebravo
+
+JmenaKrestni_L
+Lalelo
+Lelelau
+LoO
+LoOa
+LoaLao
+Lelu lou
+OleLo
+L o
+LoLaLeLaLo
+LuL
+Loola
+LaaleO
+
+JmenaPrijmeni_L
+LoaLao
+Lopata
+LuLooOo
+OloLe
+Le
+Le E
+LoLeLa
+LoAoLe
+LeOu
+LoLaLau
+Lala
+Lale
+
+Mesta_L
+LaLeLauLa
+Lo Lau
+Lal Le
+LalaLeoui
+LolalaA
+
+Mesta_Ln
+LolalAa
+Lal lE
+LaulouLe
+Lelen
+LaulalEouLo
