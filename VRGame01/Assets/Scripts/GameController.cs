@@ -7,58 +7,26 @@ using UnityEngine;
 // --- GameController ---
 // Řízení, komunikace s unity, propojení modelů a dat
 
-public class AktualniInformace : MonoBehaviour
-{
-    public DateTime AktualniDen;
-    public int AktualniSance;
-    public Osoba AktualniOsoba;
-    public List<string> PlatnaPrace;
-    //public List<Osoba> AktualniZlocinci;
-    public DataCollection DataCollection;
-    public int OdpocetDnu;
-
-    private static System.Random random;
-    void Start()
-    {
-        DataCollection = GetComponent<DataCollection>();
-
-        AktualniDen = DataCollection.StartovniDatum;
-        OdpocetDnu = 0;
-        AktualniSance = 0;
-
-        NastavPrace();
-        NastavZlocince();
-    }
-
-    public void DalsiDen()
-    {
-        AktualniDen.AddDays(1);
-
-        AktualniSance = DataCollection.SanceSkrzDny[++OdpocetDnu];
-
-        NastavPrace();
-        NastavZlocince();
-    }
-    private void NastavPrace()
-    {
-        PlatnaPrace = DataCollection.Prace.OrderBy(x => random.Next()).Take(5).ToList();
-    }
-    private void NastavZlocince()
-    {
-        // Nastav zločince
-    }
-}
 public class GameController : MonoBehaviour
 {
     private AktualniInformace aktualniInformace;
     private DataCollection dataCollection;
     private Osoba osoba;
     private static System.Random random;
-    void Start()
+    private int cas = 0;
+    public void Start()
     {
         aktualniInformace = GetComponent<AktualniInformace>();
         dataCollection = GetComponent<DataCollection>();
         random = new System.Random();
+    }
+    public void Update()
+    {
+        if (Time.time > cas)
+        {
+            cas += 3;
+            DalsiClovek();
+        }
     }
     public void DalsiClovek()
     {
@@ -203,7 +171,6 @@ public class GameController : MonoBehaviour
                 case "NeplatnaPrace":
                     if (osoba.TypDruhehoDokumentu == TypDokumentu.PracovniPovoleni)
                     {
-                        string VyslendaPrace;
                         var VsechnyPrace = dataCollection.Prace;
                         foreach(var prace in aktualniInformace.PlatnaPrace)
                         {
@@ -252,7 +219,6 @@ public class GameController : MonoBehaviour
         var krestniJmena = new List<Jmeno>();
         var prijmeniJmena = new List<Jmeno>();
         var pohlavi = new Pohlavi();
-        var vicePohlavi = Enum.GetValues(typeof(Pohlavi));
         switch (typPlanety)
         {
             case TypPlanety.Zeme:
@@ -268,6 +234,7 @@ public class GameController : MonoBehaviour
             case TypPlanety.Ugandus:
                 krestniJmena = dataCollection.JmenaKrestni.Where(j => j.Planeta == TypPlanety.Ugandus).ToList();
                 prijmeniJmena = dataCollection.JmenaPrijmeni.Where(j => j.Planeta == TypPlanety.Ugandus).ToList();
+                var vicePohlavi = Enum.GetValues(typeof(Pohlavi));
                 pohlavi = (Pohlavi)vicePohlavi.GetValue(random.Next(vicePohlavi.Length));
                 break;
             case TypPlanety.LaleloOlelAa:
@@ -287,7 +254,7 @@ public class GameController : MonoBehaviour
             do
             {
                 typDruhehoDokumentu = (TypDokumentu)values.GetValue(random.Next(values.Length));
-            } while (typDruhehoDokumentu != TypDokumentu.Obcanka);
+            } while (typDruhehoDokumentu == TypDokumentu.Obcanka);
             osoba.TypDruhehoDokumentu = typDruhehoDokumentu;
         }
         else

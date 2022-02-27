@@ -51,4 +51,8 @@ public class TypUdaje
         NazevUdaje = nazevUdaje;
         OvlivnujeZdejsi = ovlivnujeZdejsi;
     }
+    public override string ToString()
+    {
+        return NazevUdaje;
+    }
 }
