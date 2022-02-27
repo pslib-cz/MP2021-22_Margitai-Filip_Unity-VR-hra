@@ -78,6 +78,17 @@ public class Obcanka : Dokument
         Mesto = mesto;
         Id = id;
     }
+    public override string ToString()
+    {
+        return " --- Obcanka --- " +
+            ", JmenoKrestni: " + JmenoKrestni +
+            ", JmenoPrijmeni: " + JmenoPrijmeni +
+            ", Pohlaví: " + Pohlavi.ToString() +
+            ", Narozeni: " + Narozeni.ToString("MM/dd/yyyy") +
+            ", Platnost: " + Platnost.ToString("MM/dd/yyyy") +
+            ", Planeta: " + Planeta.TypPlanety.ToString() +
+            ", Id: " + Id;
+    }
 }
 public class PracovniPovoleni : Dokument
 {
@@ -94,6 +105,17 @@ public class PracovniPovoleni : Dokument
         Narozeni = narozeni;
         Prace = prace;
     }
+    public override string ToString()
+    {
+        return " --- PracovniPovoleni --- " +
+            ", JmenoKrestni: " + JmenoKrestni +
+            ", JmenoPrijmeni: " + JmenoPrijmeni +
+            ", Pohlaví: " + Pohlavi.ToString() +
+            ", Narozeni: " + Narozeni.ToString("MM/dd/yyyy") +
+            ", Platnost: " + Platnost.ToString("MM/dd/yyyy") +
+            ", Planeta: " + Planeta.TypPlanety.ToString() +
+            ", Prace: " + Prace;
+    }
 }
 public class Povolenka : Dokument
 {
@@ -109,6 +131,16 @@ public class Povolenka : Dokument
         Pohlavi = pohlavi;
         Id = id;
     }
+    public override string ToString()
+    {
+        return " --- Povolenka --- " +
+            ", JmenoKrestni: " + JmenoKrestni +
+            ", JmenoPrijmeni: " + JmenoPrijmeni +
+            ", Pohlaví: " + Pohlavi.ToString() +
+            ", Platnost: " + Platnost.ToString("MM/dd/yyyy") +
+            ", Planeta: " + Planeta.TypPlanety.ToString() +
+            ", Id: " + Id;
+    }
 }
 public class ImigracniList : Dokument
 {
@@ -123,6 +155,16 @@ public class ImigracniList : Dokument
         Platnost = platnost;
         Narozeni = narozeni;
         Id = id;
+    }
+    public override string ToString()
+    {
+        return " --- ImigracniList --- " +
+            ", JmenoKrestni: " + JmenoKrestni +
+            ", JmenoPrijmeni: " + JmenoPrijmeni +
+            ", Narozeni: " + Narozeni.ToString("MM/dd/yyyy") +
+            ", Platnost: " + Platnost.ToString("MM/dd/yyyy") +
+            ", Planeta: " + Planeta.TypPlanety.ToString() +
+            ", Id: " + Id;
     }
 }
 public class Osoba
@@ -143,6 +185,20 @@ public class Osoba
     public Dokument DruhyDokument;
     public TypDokumentu TypDruhehoDokumentu;
     public string Prace;
+
+    public override string ToString()
+    {
+        return "JmenoKrestni: " + JmenoKrestni +
+            ", JmenoPrijmeni: " + JmenoPrijmeni +
+            ", Pohlaví: " + Pohlavi.ToString() +
+            ", Narozeni: " + Narozeni.ToString("MM/dd/yyyy") +
+            ", Planeta: " + Planeta.TypPlanety.ToString() +
+            ", Id: " + Id +
+            ", JePlatny: " + JePlatny.ToString() +
+            ", NeplatnyUdaj: " + NeplatnyUdaj.ToString() +
+            Obcanka.ToString() +
+            DruhyDokument.ToString();
+    }
 }
 public class CeleJmenoAPohlavi
 {

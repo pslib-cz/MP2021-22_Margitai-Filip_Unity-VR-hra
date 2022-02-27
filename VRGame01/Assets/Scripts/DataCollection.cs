@@ -6,7 +6,7 @@ using UnityEngine;
 // --- DataCollection ---
 // Seznamy přednahraných dat.
 
-public class DataCollection
+public class DataCollection : MonoBehaviour
 {
     public List<Jmeno> JmenaKrestni;
     public List<Jmeno> JmenaPrijmeni;
