@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 // --- GameController ---
@@ -14,6 +15,11 @@ public class GameController : MonoBehaviour
     private Osoba osoba;
     private static System.Random random;
     private int cas = 0;
+
+    public GameObject Obcanka;
+    public GameObject PracPovoleni;
+    public GameObject Povolenka;
+    public GameObject ImigracList;
     public void Start()
     {
         aktualniInformace = GetComponent<AktualniInformace>();
@@ -22,11 +28,13 @@ public class GameController : MonoBehaviour
     }
     public void Update()
     {
-        if (Time.time > cas)
-        {
-            cas += 3;
-            DalsiClovek();
-        }
+        //if (Time.time > cas)
+        //{
+        //    cas += 3;
+        //    DalsiClovek();
+        //    VytvorObjekty();
+        //    Debug.Log("Vytvořeno");
+        //}
     }
     public void DalsiClovek()
     {
@@ -131,7 +139,7 @@ public class GameController : MonoBehaviour
                     }
                     else if (osoba.Planeta == dataCollection.Planety.SingleOrDefault(p => p.TypPlanety == TypPlanety.Ugandus))
                     {
-                        osoba.DruhyDokument.Planeta = dataCollection.Planety.SingleOrDefault(p => p.TypPlanety == TypPlanety.LaleloOlelAa);
+                        osoba.DruhyDokument.Planeta = dataCollection.Planety.SingleOrDefault(p => p.TypPlanety == TypPlanety.LaleloAa);
                     }
                     else
                     {
@@ -237,9 +245,9 @@ public class GameController : MonoBehaviour
                 var vicePohlavi = Enum.GetValues(typeof(Pohlavi));
                 pohlavi = (Pohlavi)vicePohlavi.GetValue(random.Next(vicePohlavi.Length));
                 break;
-            case TypPlanety.LaleloOlelAa:
-                krestniJmena = dataCollection.JmenaKrestni.Where(j => j.Planeta == TypPlanety.LaleloOlelAa).ToList();
-                prijmeniJmena = dataCollection.JmenaPrijmeni.Where(j => j.Planeta == TypPlanety.LaleloOlelAa).ToList();
+            case TypPlanety.LaleloAa:
+                krestniJmena = dataCollection.JmenaKrestni.Where(j => j.Planeta == TypPlanety.LaleloAa).ToList();
+                prijmeniJmena = dataCollection.JmenaPrijmeni.Where(j => j.Planeta == TypPlanety.LaleloAa).ToList();
                 pohlavi = MuzXZena();
                 break;
         }
@@ -280,5 +288,37 @@ public class GameController : MonoBehaviour
                 osoba.DruhyDokument = new PracovniPovoleni(osoba.JmenoKrestni, osoba.JmenoPrijmeni, osoba.Planeta, platnost, osoba.Pohlavi, osoba.Narozeni, prace);
                 break;
         }
+    }
+    public void VytvorObjekty()
+    {
+        // --- Obcanka ---
+        var Udaje = Obcanka.transform.GetChild(1);
+        Udaje.GetChild(1).GetComponent<TextMeshPro>().text = osoba.Obcanka.JmenoPrijmeni + ", " + osoba.Obcanka.JmenoKrestni;
+        Udaje.GetChild(2).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Obcanka.Narozeni.ToString("MM/dd/yyyy");
+        Udaje.GetChild(3).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Obcanka.Pohlavi.ToString();
+        Udaje.GetChild(4).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Obcanka.Mesto;
+        Udaje.GetChild(5).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Obcanka.Platnost.ToString("MM/dd/yyyy");
+        Udaje.GetChild(7).GetComponent<TextMeshPro>().text = osoba.Obcanka.Planeta.TypPlanety.ToString();
+        Udaje.GetChild(8).GetComponent<TextMeshPro>().text = osoba.Obcanka.Id;
+        switch (osoba.Obcanka.Planeta.TypPlanety)
+        {
+            case TypPlanety.Zeme:
+                Udaje.GetChild(7).GetComponent<TextMeshPro>().color = Color.green;
+                break;
+            case TypPlanety.C212:
+                Udaje.GetChild(7).GetComponent<TextMeshPro>().color = Color.cyan;
+                break;
+            case TypPlanety.Ugandus:
+                Udaje.GetChild(7).GetComponent<TextMeshPro>().color = Color.red;
+                break;
+            case TypPlanety.LaleloAa:
+                Udaje.GetChild(7).GetComponent<TextMeshPro>().color = Color.blue;
+                break;
+        }
+
+
+        Instantiate(Obcanka);
+
+        // --- Druhy dokument ---
     }
 }

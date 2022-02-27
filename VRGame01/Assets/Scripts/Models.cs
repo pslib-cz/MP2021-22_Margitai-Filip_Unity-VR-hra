@@ -13,7 +13,7 @@ public enum TypPlanety
     Zeme,           // Lidi
     C212,           // Medůzy
     Ugandus,        // Knuckles
-    LaleloOlelAa    // Slimáci
+    LaleloAa    // Slimáci
 }
 public enum TypDokumentu
 {

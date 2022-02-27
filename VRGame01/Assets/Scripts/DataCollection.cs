@@ -63,18 +63,18 @@ public class DataCollection : MonoBehaviour
             new Jmeno("Kwame", TypPlanety.Ugandus),
             new Jmeno("Makena", TypPlanety.Ugandus),
             new Jmeno("Chidinma", TypPlanety.Ugandus),
-            new Jmeno("Lalelo", TypPlanety.LaleloOlelAa),
-            new Jmeno("Lelelau", TypPlanety.LaleloOlelAa),
-            new Jmeno("LoO", TypPlanety.LaleloOlelAa),
-            new Jmeno("LoOa", TypPlanety.LaleloOlelAa),
-            new Jmeno("LoaLao", TypPlanety.LaleloOlelAa),
-            new Jmeno("Lelu lou", TypPlanety.LaleloOlelAa),
-            new Jmeno("OleLo", TypPlanety.LaleloOlelAa),
-            new Jmeno("L o", TypPlanety.LaleloOlelAa),
-            new Jmeno("LoLaLeLaLo", TypPlanety.LaleloOlelAa),
-            new Jmeno("LuL", TypPlanety.LaleloOlelAa),
-            new Jmeno("Loola", TypPlanety.LaleloOlelAa),
-            new Jmeno("LaaleO", TypPlanety.LaleloOlelAa)
+            new Jmeno("Lalelo", TypPlanety.LaleloAa),
+            new Jmeno("Lelelau", TypPlanety.LaleloAa),
+            new Jmeno("LoO", TypPlanety.LaleloAa),
+            new Jmeno("LoOa", TypPlanety.LaleloAa),
+            new Jmeno("LoaLao", TypPlanety.LaleloAa),
+            new Jmeno("Lelu lou", TypPlanety.LaleloAa),
+            new Jmeno("OleLo", TypPlanety.LaleloAa),
+            new Jmeno("L o", TypPlanety.LaleloAa),
+            new Jmeno("LoLaLeLaLo", TypPlanety.LaleloAa),
+            new Jmeno("LuL", TypPlanety.LaleloAa),
+            new Jmeno("Loola", TypPlanety.LaleloAa),
+            new Jmeno("LaaleO", TypPlanety.LaleloAa)
         };
         JmenaPrijmeni = new List<Jmeno>()
         {
@@ -121,18 +121,18 @@ public class DataCollection : MonoBehaviour
             new Jmeno("Muhammad", TypPlanety.Ugandus),
             new Jmeno("Camara", TypPlanety.Ugandus),
             new Jmeno("Abdi", TypPlanety.Ugandus),
-            new Jmeno("LoaLao", TypPlanety.LaleloOlelAa),
-            new Jmeno("Lopata", TypPlanety.LaleloOlelAa),
-            new Jmeno("LuLooOo", TypPlanety.LaleloOlelAa),
-            new Jmeno("OloLe", TypPlanety.LaleloOlelAa),
-            new Jmeno("Le", TypPlanety.LaleloOlelAa),
-            new Jmeno("Le E", TypPlanety.LaleloOlelAa),
-            new Jmeno("LoLeLa", TypPlanety.LaleloOlelAa),
-            new Jmeno("LoAoLe", TypPlanety.LaleloOlelAa),
-            new Jmeno("LeOu", TypPlanety.LaleloOlelAa),
-            new Jmeno("LoLaLau", TypPlanety.LaleloOlelAa),
-            new Jmeno("Lala", TypPlanety.LaleloOlelAa),
-            new Jmeno("Lale", TypPlanety.LaleloOlelAa)
+            new Jmeno("LoaLao", TypPlanety.LaleloAa),
+            new Jmeno("Lopata", TypPlanety.LaleloAa),
+            new Jmeno("LuLooOo", TypPlanety.LaleloAa),
+            new Jmeno("OloLe", TypPlanety.LaleloAa),
+            new Jmeno("Le", TypPlanety.LaleloAa),
+            new Jmeno("Le E", TypPlanety.LaleloAa),
+            new Jmeno("LoLeLa", TypPlanety.LaleloAa),
+            new Jmeno("LoAoLe", TypPlanety.LaleloAa),
+            new Jmeno("LeOu", TypPlanety.LaleloAa),
+            new Jmeno("LoLaLau", TypPlanety.LaleloAa),
+            new Jmeno("Lala", TypPlanety.LaleloAa),
+            new Jmeno("Lale", TypPlanety.LaleloAa)
         };
         Mesta = new List<Mesto>()
         {
@@ -176,23 +176,23 @@ public class DataCollection : MonoBehaviour
             new Mesto("Mbarale", TypPlanety.Ugandus, false),
             new Mesto("Soroti", TypPlanety.Ugandus, false),
             new Mesto("Kunebravo", TypPlanety.Ugandus, false),
-            new Mesto("LaLeLauLa", TypPlanety.LaleloOlelAa, true),
-            new Mesto("Lo Lau", TypPlanety.LaleloOlelAa, true),
-            new Mesto("Lal Le", TypPlanety.LaleloOlelAa, true),
-            new Mesto("LalaLeoui", TypPlanety.LaleloOlelAa, true),
-            new Mesto("LolalaA", TypPlanety.LaleloOlelAa, true),
-            new Mesto("LolalAa", TypPlanety.LaleloOlelAa, false),
-            new Mesto("Lal lE", TypPlanety.LaleloOlelAa, false),
-            new Mesto("LaulouLe", TypPlanety.LaleloOlelAa, false),
-            new Mesto("Lelen", TypPlanety.LaleloOlelAa, false),
-            new Mesto("LaulalEouLo", TypPlanety.LaleloOlelAa, false),
+            new Mesto("LaLeLauLa", TypPlanety.LaleloAa, true),
+            new Mesto("Lo Lau", TypPlanety.LaleloAa, true),
+            new Mesto("Lal Le", TypPlanety.LaleloAa, true),
+            new Mesto("LalaLeoui", TypPlanety.LaleloAa, true),
+            new Mesto("LolalaA", TypPlanety.LaleloAa, true),
+            new Mesto("LolalAa", TypPlanety.LaleloAa, false),
+            new Mesto("Lal lE", TypPlanety.LaleloAa, false),
+            new Mesto("LaulouLe", TypPlanety.LaleloAa, false),
+            new Mesto("Lelen", TypPlanety.LaleloAa, false),
+            new Mesto("LaulalEouLo", TypPlanety.LaleloAa, false),
         };
         Planety = new List<Planeta>()
         {
             new Planeta(TypPlanety.Zeme, 20),
             new Planeta(TypPlanety.C212, 15),
             new Planeta(TypPlanety.Ugandus, 35),
-            new Planeta(TypPlanety.LaleloOlelAa, 25),
+            new Planeta(TypPlanety.LaleloAa, 25),
         };
         Prace = new List<string>()
         {
