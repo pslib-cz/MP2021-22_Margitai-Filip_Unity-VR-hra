@@ -319,6 +319,51 @@ public class GameController : MonoBehaviour
 
         Instantiate(Obcanka);
 
+        if (!osoba.JePlatny)
+        {
+            Debug.Log(osoba.Obcanka.ToString());
+            if (osoba.DruhyDokument != null) Debug.Log(osoba.DruhyDokument.ToString());
+            else Debug.Log("Nope");
+            Debug.Log(osoba.NeplatnyUdaj);
+        }
+
+
         // --- Druhy dokument ---
+        if (osoba.DruhyDokument != null)
+        {
+            switch (osoba.TypDruhehoDokumentu)
+            {
+                case TypDokumentu.PracovniPovoleni:
+                    Udaje = PracPovoleni.transform.GetChild(1);
+                    Udaje.GetChild(0).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.JmenoKrestni;
+                    Udaje.GetChild(1).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.JmenoPrijmeni;
+                    Udaje.GetChild(2).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Narozeni.ToString("MM/dd/yyyy");
+                    Udaje.GetChild(3).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.Platnost.ToString("MM/dd/yyyy");
+                    Udaje.GetChild(4).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Pohlavi.ToString();
+                    Udaje.GetChild(5).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Prace;
+                    Udaje.GetChild(6).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.Planeta.TypPlanety.ToString();
+                    Instantiate(PracPovoleni);
+                    break;
+                case TypDokumentu.ImigracniList:
+                    Udaje = ImigracList.transform.GetChild(1);
+                    Udaje.GetChild(1).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.JmenoKrestni + " " + osoba.DruhyDokument.JmenoPrijmeni;
+                    Udaje.GetChild(2).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.Platnost.ToString("MM/dd/yyyy");
+                    Udaje.GetChild(3).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Narozeni.ToString("MM/dd/yyyy");
+                    Udaje.GetChild(4).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Id;
+                    Udaje.GetChild(5).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.Planeta.TypPlanety.ToString();
+                    Instantiate(ImigracList);
+                    break;
+                case TypDokumentu.Povolenka:
+                    Udaje = Povolenka.transform.GetChild(1);
+                    Udaje.GetChild(0).GetComponent<TextMeshPro>().text = osoba.Obcanka.JmenoPrijmeni.ToUpper() + ", " + osoba.Obcanka.JmenoKrestni.ToUpper();
+                    Udaje.GetChild(1).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Pohlavi.ToString();
+                    Udaje.GetChild(2).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Id;
+                    Udaje.GetChild(3).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.Platnost.ToString("MM/dd/yyyy");
+                    Udaje.GetChild(4).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Planeta.TypPlanety.ToString();
+                    Instantiate(Povolenka);
+                    break;
+            }
+
+        }
     }
 }

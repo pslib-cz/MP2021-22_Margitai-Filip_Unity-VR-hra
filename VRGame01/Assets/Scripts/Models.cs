@@ -87,6 +87,7 @@ public class Obcanka : Dokument
             ", Narozeni: " + Narozeni.ToString("MM/dd/yyyy") +
             ", Platnost: " + Platnost.ToString("MM/dd/yyyy") +
             ", Planeta: " + Planeta.TypPlanety.ToString() +
+            ", Mesto: " + Mesto +
             ", Id: " + Id;
     }
 }

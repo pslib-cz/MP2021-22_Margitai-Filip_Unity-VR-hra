@@ -16,7 +16,6 @@ public class ButtonPressAnim : MonoBehaviour
         transform.position = PressedPossition;
         CasZmacknuti = Time.time;
         isPressed = true;
-        Debug.Log("Press");
     }
     void Update()
     {
