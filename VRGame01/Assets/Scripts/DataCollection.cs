@@ -202,7 +202,7 @@ public class DataCollection : MonoBehaviour
         StartovniDatum = new DateTime(2067, 4, 6);
         SanceSkrzDny = new List<int>()
         {
-            8, -5, 15, 3, -20, 13, -4, 6, -2, 7, -12, 6, 3, -7, 22, -6, 18, -19, 4, -8, 15, -25  
+            8, -5, 15, 3, -20, 13, -4, 6, -2, 7, -12, 6, 3, -7, 22, -6, 18, -19, 4, -8, 15, -25
         };
         TypyUdaje = new List<TypUdaje>()
         {

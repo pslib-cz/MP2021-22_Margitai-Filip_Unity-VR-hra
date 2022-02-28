@@ -6,3 +6,6 @@
 
 bohužel z důvodu časové náročnosti nebyl vypracován 5. bod osnovy - příběhový mód
 -> pokud se něco nestihne
+
+závěr - nebylo vypracováno, počet hodin na projektu (konkrétně co), zkušenosti do
+budoucna - pokud bych dělal projekt odznova, jak by se v tom dalo pokračovat
