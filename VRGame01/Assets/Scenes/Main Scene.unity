@@ -370,9 +370,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Obcanka: {fileID: 6394859076059083846, guid: e5adfc3c2beac0f42b93eb2b07c683af, type: 3}
-  PracPovoleni: {fileID: 0}
-  Povolenka: {fileID: 0}
-  ImigracList: {fileID: 0}
+  PracPovoleni: {fileID: 3505436034595758178, guid: 99631ae124a8aa44a8f387ce268cf9af, type: 3}
+  Povolenka: {fileID: 241456615132591492, guid: 0c5210e72d9dc90499c6e23eb4fc59ac, type: 3}
+  ImigracList: {fileID: 6451361193554598371, guid: 96f0249cb6af3174abbe8b60d66db5eb, type: 3}
 --- !u!114 &617334841
 MonoBehaviour:
   m_ObjectHideFlags: 0
