@@ -9,3 +9,14 @@ bohužel z důvodu časové náročnosti nebyl vypracován 5. bod osnovy - pří
 
 závěr - nebylo vypracováno, počet hodin na projektu (konkrétně co), zkušenosti do
 budoucna - pokud bych dělal projekt odznova, jak by se v tom dalo pokračovat
+
+dneska
+GameController - neproporcionálně
+
+rozepsat jednotlivé hodiny
+
+závěr delší
+
+konkrétněji knihovny
+
+jména bugů
