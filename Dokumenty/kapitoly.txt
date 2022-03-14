@@ -20,3 +20,36 @@ závěr delší
 konkrétněji knihovny
 
 jména bugů
+
+Postřehová hra ve VR, ve které se odměňuje rychlé přemýšlení. Ocitnete se v roli 
+hraniční kontroly a Vaším úkolem bude, co nejrychleji pouštět, či zamítat lidi a 
+mimozemšťany na hranicích, avšak špatný úsudek pro Vás může snadno znamenat konec
+ hry. – do angličtini
+
+pojmy
+headset
+mainstream
+kickstarter
+gyroskop
+input
+output
+trigger
+grip
+joystick
+trackpad
+touchpad
+visuál
+gameplay
+tutoriál
+low poly
+rig
+textura
+snapovací ovládání
+game feel
+hitbox
+sandbox
+prefab
+decal
+bug
+error
+warning
