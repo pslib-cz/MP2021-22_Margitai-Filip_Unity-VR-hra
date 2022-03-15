@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
 {
     private AktualniInformace aktualniInformace;
     private DataCollection dataCollection;
-    private Osoba osoba;
+    public Osoba osoba;
     private static System.Random random;
     private int cas = 0;
 
@@ -108,7 +108,7 @@ public class GameController : MonoBehaviour
                         if (osoba.Pohlavi == Pohlavi.Muz) osoba.Pohlavi = Pohlavi.Zena;
                         else if (osoba.Pohlavi == Pohlavi.Zena) osoba.Pohlavi = Pohlavi.Muz;
                         else osoba.Pohlavi = Pohlavi.Zena;
-                        GenerujDruhyDokument(true);
+                        GenerujDruhyDokument(false);
                         provedloSe = true;
                     }
                     break;
@@ -116,17 +116,17 @@ public class GameController : MonoBehaviour
                     if (osoba.TypDruhehoDokumentu != TypDokumentu.Povolenka)
                     {
                         osoba.Narozeni = osoba.Narozeni.AddDays(random.Next(-400, 400));
-                        GenerujDruhyDokument(true);
+                        GenerujDruhyDokument(false);
                         provedloSe = true;
                     }
                     break;
                 case "IdNeshoduji":
-                    if (osoba.TypDruhehoDokumentu != TypDokumentu.PracovniPovoleni)
-                    {
+                    //if (osoba.TypDruhehoDokumentu != TypDokumentu.PracovniPovoleni)
+                    //{
                         osoba.Id = NahodnyRetezec(9).Insert(5, "-");
-                        GenerujDruhyDokument(true);
+                        GenerujDruhyDokument(false);
                         provedloSe = true;
-                    }
+                    //}
                     break;
                 case "PlanetyNeshoduji":
                     if (osoba.Planeta == dataCollection.Planety.SingleOrDefault(p => p.TypPlanety == TypPlanety.Zeme))
@@ -224,6 +224,7 @@ public class GameController : MonoBehaviour
     }
     private CeleJmenoAPohlavi GenerujCeleJmenoAPohlavi(TypPlanety typPlanety)
     {
+        random = new System.Random();
         var krestniJmena = new List<Jmeno>();
         var prijmeniJmena = new List<Jmeno>();
         var pohlavi = new Pohlavi();
@@ -262,7 +263,7 @@ public class GameController : MonoBehaviour
             do
             {
                 typDruhehoDokumentu = (TypDokumentu)values.GetValue(random.Next(values.Length));
-            } while (typDruhehoDokumentu == TypDokumentu.Obcanka);
+            } while ((typDruhehoDokumentu == TypDokumentu.Obcanka) || (typDruhehoDokumentu == TypDokumentu.PracovniPovoleni));
             osoba.TypDruhehoDokumentu = typDruhehoDokumentu;
         }
         else
@@ -335,22 +336,22 @@ public class GameController : MonoBehaviour
             {
                 case TypDokumentu.PracovniPovoleni:
                     Udaje = PracPovoleni.transform.GetChild(1);
-                    //Udaje.GetChild(0).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.JmenoKrestni;
-                    //Udaje.GetChild(1).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.JmenoPrijmeni;
-                    //Udaje.GetChild(2).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Narozeni.ToString("MM/dd/yyyy");
-                    //Udaje.GetChild(3).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.Platnost.ToString("MM/dd/yyyy");
-                    //Udaje.GetChild(4).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Pohlavi.ToString();
-                    //Udaje.GetChild(5).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Prace;
-                    //Udaje.GetChild(6).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.Planeta.TypPlanety.ToString();
+                    Udaje.GetChild(0).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.JmenoKrestni;
+                    Udaje.GetChild(1).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.JmenoPrijmeni;
+                    Udaje.GetChild(2).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Narozeni.ToString("MM/dd/yyyy");
+                    Udaje.GetChild(3).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.Platnost.ToString("MM/dd/yyyy");
+                    Udaje.GetChild(4).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Pohlavi.ToString();
+                    Udaje.GetChild(5).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Prace;
+                    Udaje.GetChild(6).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.Planeta.TypPlanety.ToString();
                     Instantiate(PracPovoleni);
                     break;
                 case TypDokumentu.ImigracniList:
                     Udaje = ImigracList.transform.GetChild(1);
-                    //Udaje.GetChild(1).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.JmenoKrestni + " " + osoba.DruhyDokument.JmenoPrijmeni;
-                    //Udaje.GetChild(2).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.Platnost.ToString("MM/dd/yyyy");
-                    //Udaje.GetChild(3).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Narozeni.ToString("MM/dd/yyyy");
-                    //Udaje.GetChild(4).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Id;
-                    //Udaje.GetChild(5).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.Planeta.TypPlanety.ToString();
+                    Udaje.GetChild(0).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.JmenoKrestni + " " + osoba.DruhyDokument.JmenoPrijmeni;
+                    Udaje.GetChild(1).GetChild(1).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.Platnost.ToString("MM/dd/yyyy");
+                    Udaje.GetChild(2).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Narozeni.ToString("MM/dd/yyyy");
+                    Udaje.GetChild(3).GetChild(1).GetComponent<TextMeshPro>().text = osoba.Id;
+                    Udaje.GetChild(4).GetComponent<TextMeshPro>().text = osoba.DruhyDokument.Planeta.TypPlanety.ToString();
                     Instantiate(ImigracList);
                     break;
                 case TypDokumentu.Povolenka:

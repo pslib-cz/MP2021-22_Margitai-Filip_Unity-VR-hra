@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2922011826427632643}
   - component: {fileID: 2922011826427632668}
   - component: {fileID: 2922011826427632669}
+  - component: {fileID: -2059990033948013312}
   m_Layer: 0
   m_Name: Locomotion System
   m_TagString: Untagged
@@ -123,3 +124,15 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
     m_Reference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!114 &-2059990033948013312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922011826427632670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d230c0172ebb147b5117d5f44329d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
