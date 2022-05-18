@@ -198,7 +198,24 @@ public class GameController : MonoBehaviour
                     //case "SpatnaFotka":
                     //    break;            
                     //case "JeZlocinec":
-                    //    break;
+                    //if (osoba.Planeta == dataCollection.Planety.SingleOrDefault(p => p.TypPlanety == TypPlanety.Zeme))
+                    //{
+                    //    osoba.DruhyDokument.Planeta = dataCollection.Planety.SingleOrDefault(p => p.TypPlanety == TypPlanety.C212);
+                    //}
+                    //else if (osoba.Planeta == dataCollection.Planety.SingleOrDefault(p => p.TypPlanety == TypPlanety.C212))
+                    //{
+                    //    osoba.DruhyDokument.Planeta = dataCollection.Planety.SingleOrDefault(p => p.TypPlanety == TypPlanety.Ugandus);
+                    //}
+                    //else if (osoba.Planeta == dataCollection.Planety.SingleOrDefault(p => p.TypPlanety == TypPlanety.Ugandus))
+                    //{
+                    //    osoba.DruhyDokument.Planeta = dataCollection.Planety.SingleOrDefault(p => p.TypPlanety == TypPlanety.LaleloAa);
+                    //}
+                    //else
+                    //{
+                    //    osoba.DruhyDokument.Planeta = dataCollection.Planety.SingleOrDefault(p => p.TypPlanety == TypPlanety.Zeme);
+                    //}
+                    //provedloSe = true;
+                    //break;
             }
         }
     }
